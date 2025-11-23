@@ -1,5 +1,8 @@
 <?php
 // menu.php
+function add($a, $b)
+{
+    return $a + $b;
 function inputTwoNumbers()
 {
 	    $a = readNumber("Введите первое число: ");
@@ -41,7 +44,7 @@ while (true) {
                 echo "Сначала выберите пункт 1 и введите два числа.\n";
                 break;
             }
-            $sum = $a + $b;
+            $sum = add($a, $b);
             echo "Сумма: $a + $b = $sum\n";
             break;
 
