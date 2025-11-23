@@ -1,5 +1,10 @@
 <?php
 // menu.php
+
+function power($base, $exp)
+{
+    return pow($base, $exp);
+}
 function divide($a, $b)
 {
     if ($b == 0) {
@@ -87,7 +92,7 @@ while (true) {
         case '5':
             $base = readNumber("Введите число (основание): ");
             $exp  = readNumber("Введите степень: ");
-            $pow  = pow($base, $exp);
+            $pow = power($base, $exp);
             echo "$base ^ $exp = $pow\n";
             break;
 
