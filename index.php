@@ -3,6 +3,12 @@
 function add($a, $b)
 {
     return $a + $b;
+function inputTwoNumbers()
+{
+	    $a = readNumber("Введите первое число: ");
+	    $b = readNumber("Введите второе число: ");
+	    echo "Числа сохранены: a = $a, b = $b\n";
+	    return [$a, $b];
 }
 
 function readNumber($prompt)
@@ -30,9 +36,7 @@ while (true) {
 
     switch ($choice) {
         case '1':
-            $a = readNumber("Введите первое число: ");
-            $b = readNumber("Введите второе число: ");
-            echo "Числа сохранены: a = $a, b = $b\n";
+            list($a, $b) = inputTwoNumbers();
             break;
 
         case '2':
