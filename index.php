@@ -1,6 +1,34 @@
 <?php
 // menu.php
 
+function power($base, $exp)
+{
+    return pow($base, $exp);
+}
+function divide($a, $b)
+{
+    if ($b == 0) {
+        return null; // будем обрабатывать отдельно
+    }
+    return $a / $b;
+}
+
+function subtract($a, $b)
+{
+    return $a - $b;
+}
+function add($a, $b)
+{
+    return $a + $b;
+}
+function inputTwoNumbers()
+{
+	    $a = readNumber("Введите первое число: ");
+	    $b = readNumber("Введите второе число: ");
+	    echo "Числа сохранены: a = $a, b = $b\n";
+	    return [$a, $b];
+}
+
 function readNumber($prompt)
 {
     echo $prompt;
@@ -26,9 +54,7 @@ while (true) {
 
     switch ($choice) {
         case '1':
-            $a = readNumber("Введите первое число: ");
-            $b = readNumber("Введите второе число: ");
-            echo "Числа сохранены: a = $a, b = $b\n";
+            list($a, $b) = inputTwoNumbers();
             break;
 
         case '2':
@@ -36,7 +62,7 @@ while (true) {
                 echo "Сначала выберите пункт 1 и введите два числа.\n";
                 break;
             }
-            $sum = $a + $b;
+            $sum = add($a, $b);
             echo "Сумма: $a + $b = $sum\n";
             break;
 
@@ -45,7 +71,7 @@ while (true) {
                 echo "Сначала выберите пункт 1 и введите два числа.\n";
                 break;
             }
-            $diff = $a - $b;
+            $diff = subtract($a, $b);
             echo "Разность: $a - $b = $diff\n";
             break;
 
@@ -54,18 +80,19 @@ while (true) {
                 echo "Сначала выберите пункт 1 и введите два числа.\n";
                 break;
             }
-            if ($b == 0) {
-                echo "Ошибка: деление на ноль.\n";
+            $div = divide($a, $b);
+            if ($div === null) {
+                echo "Ошибка: деление на ноль запрещено.\n";
                 break;
             }
-            $div = $a / $b;
+
             echo "Частное: $a / $b = $div\n";
             break;
 
         case '5':
             $base = readNumber("Введите число (основание): ");
             $exp  = readNumber("Введите степень: ");
-            $pow  = pow($base, $exp);
+            $pow = power($base, $exp);
             echo "$base ^ $exp = $pow\n";
             break;
 
