@@ -1,5 +1,12 @@
 <?php
 // menu.php
+function divide($a, $b)
+{
+    if ($b == 0) {
+        return null; // будем обрабатывать отдельно
+    }
+    return $a / $b;
+}
 
 function readNumber($prompt)
 {
@@ -54,11 +61,12 @@ while (true) {
                 echo "Сначала выберите пункт 1 и введите два числа.\n";
                 break;
             }
-            if ($b == 0) {
-                echo "Ошибка: деление на ноль.\n";
+            $div = divide($a, $b);
+            if ($div === null) {
+                echo "Ошибка: деление на ноль запрещено.\n";
                 break;
             }
-            $div = $a / $b;
+
             echo "Частное: $a / $b = $div\n";
             break;
 
