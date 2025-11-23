@@ -1,5 +1,9 @@
 <?php
 // menu.php
+function subtract($a, $b)
+{
+    return $a - $b;
+}
 
 function readNumber($prompt)
 {
@@ -45,7 +49,7 @@ while (true) {
                 echo "Сначала выберите пункт 1 и введите два числа.\n";
                 break;
             }
-            $diff = $a - $b;
+            $diff = subtract($a, $b);
             echo "Разность: $a - $b = $diff\n";
             break;
 
